@@ -10,8 +10,13 @@ public class chooseCourse extends AppCompatActivity {
 
     Button HIST115;
 
-    public void chooseGameType(View view) {
+    public void chooseHIST115(View view) {
         Intent intent = new Intent(this, chooseGameType.class);
+        //Save value of HIST115 into courseName and pass it on for later
+        String courseName = "Hist115";
+        Bundle bundle = new Bundle();
+        bundle.putString("courseName", courseName);
+        intent.putExtras(bundle);
         startActivity(intent);
     }
 

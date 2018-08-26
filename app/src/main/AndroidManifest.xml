@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".chooseCourse" />
-        <activity android:name=".chooseGameType"></activity>
+        <activity android:name=".chooseGameType" />
+        <activity android:name=".multipleChoice"></activity>
     </application>
 
 </manifest>

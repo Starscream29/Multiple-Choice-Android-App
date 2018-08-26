@@ -10,7 +10,7 @@
         android:id="@+id/Quiz"
         android:layout_width="223dp"
         android:layout_height="wrap_content"
-        android:onClick="quiz"
+        android:onClick="startQuiz"
         android:text="Quiz (10 questions)"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/allQuestions"
