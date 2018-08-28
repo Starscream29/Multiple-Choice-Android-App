@@ -44,6 +44,5 @@ public class chooseGameType extends AppCompatActivity {
         Quiz = findViewById(R.id.Quiz);
         allQuestions = findViewById(R.id.allQuestions);
 
-
     }
 }

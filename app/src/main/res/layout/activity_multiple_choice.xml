@@ -7,20 +7,113 @@
     tools:context=".multipleChoice">
 
     <TextView
-        android:id="@+id/test"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="asdf"
-        app:layout_constraintBottom_toTopOf="@+id/test1"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="153dp" />
+        android:id="@+id/Question"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="8dp"
+        android:text="QUESTION"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/Horizontal1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/test1"
+        android:id="@+id/OptionA"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="#c5a5a5"
+        android:text="Option1"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/Horizontal2"
+        app:layout_constraintEnd_toStartOf="@+id/Vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/Horizontal1" />
+
+    <TextView
+        android:id="@+id/OptionB"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="#a6f7b6"
+        android:text="Option2"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/Horizontal2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/Vertical"
+        app:layout_constraintTop_toTopOf="@+id/Horizontal1" />
+
+    <TextView
+        android:id="@+id/OptionC"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="#e5e2bd"
+        android:text="Option3"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/Vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/Horizontal2" />
+
+    <TextView
+        android:id="@+id/OptionD"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="#b6bafa"
+        android:text="Option4"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/Vertical"
+        app:layout_constraintTop_toTopOf="@+id/Horizontal2" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/Horizontal1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="adfs"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/test"
-        tools:layout_editor_absoluteX="153dp" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.33"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/Horizontal2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.66"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/Vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"/>
 </android.support.constraint.ConstraintLayout>
