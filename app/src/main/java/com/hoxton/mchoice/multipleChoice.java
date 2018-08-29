@@ -26,7 +26,6 @@ public class multipleChoice extends AppCompatActivity {
 
     public void chooseA(View view){
         if (correctAnswer == 1) {
-            OptionA.setBackgroundColor(0x000000);
             score+=3;
             getNewSet();
         }
@@ -38,7 +37,6 @@ public class multipleChoice extends AppCompatActivity {
     }
     public void chooseB(View view){
         if (correctAnswer == 2) {
-            OptionB.setBackgroundColor(0x000000);
             score+=3;
             getNewSet();
         }
@@ -46,12 +44,9 @@ public class multipleChoice extends AppCompatActivity {
             OptionB.setText("INCORRECT");
             score --;
         }
-
-
     }
     public void chooseC(View view){
         if (correctAnswer == 3) {
-            OptionC.setBackgroundColor(0x000000);
             score+=3;
             getNewSet();
         }
@@ -62,7 +57,6 @@ public class multipleChoice extends AppCompatActivity {
     }
     public void chooseD(View view){
         if (correctAnswer == 4) {
-            OptionD.setBackgroundColor(0x000000);
             score+=3;
             getNewSet();
         }
@@ -73,7 +67,6 @@ public class multipleChoice extends AppCompatActivity {
     }
 
     public void getNewSet(){
-
         if (quizType.equals("quiz")){
             if (questionsCount >= 10) {
                 Question.setText("Total score: " + score + "/10");
@@ -103,7 +96,7 @@ public class multipleChoice extends AppCompatActivity {
 
         questionsCount ++;
 
-
+        current++;
     }
 
     @Override
