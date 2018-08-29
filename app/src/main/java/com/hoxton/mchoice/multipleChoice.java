@@ -13,8 +13,9 @@ public class multipleChoice extends AppCompatActivity {
     String courseName;
     String quizType;
     int correctAnswer;
-    int score;
-    int questionsCount;
+    int score = 0;
+    int questionsCount = 0;
+    int current = 0;
     TextView Question;
     TextView OptionA;
     TextView OptionB;
@@ -73,8 +74,8 @@ public class multipleChoice extends AppCompatActivity {
 
     public void getNewSet(){
 
-        if (quizType == "quiz"){
-            if (questionsCount == 10) {
+        if (quizType.equals("quiz")){
+            if (questionsCount >= 10) {
                 Question.setText("Total score: " + score + "/10");
             }
         }
@@ -90,7 +91,7 @@ public class multipleChoice extends AppCompatActivity {
         }catch(SQLException sqle){
             throw sqle; }
 
-        currentEntry= myDbHelper.returnInfo(0);
+        currentEntry= myDbHelper.returnInfo(current, courseName);
 
         Question.setText(currentEntry[0]);
         OptionA.setText(currentEntry[1]);
@@ -101,6 +102,8 @@ public class multipleChoice extends AppCompatActivity {
         correctAnswer = Integer.parseInt(currentEntry[5]);
 
         questionsCount ++;
+
+
     }
 
     @Override

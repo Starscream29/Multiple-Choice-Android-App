@@ -130,10 +130,10 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 
     }
 
-    public String[] returnInfo(int current) {
+    public String[] returnInfo(int current, String courseName) {
 
 
-        Cursor c = myDataBase.rawQuery("SELECT * FROM HIST115", null);
+        Cursor c = myDataBase.rawQuery("SELECT * FROM " + courseName, null);
 
         int questionIndex = c.getColumnIndex("Questions");
         int answerIndex1 = c.getColumnIndex("Answer1");
