@@ -1,13 +1,107 @@
 package com.hoxton.mchoice;
 
+import android.database.SQLException;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
+
+import java.io.IOException;
 
 public class multipleChoice extends AppCompatActivity {
 
     String courseName;
     String quizType;
+    int correctAnswer;
+    int score;
+    int questionsCount;
+    TextView Question;
+    TextView OptionA;
+    TextView OptionB;
+    TextView OptionC;
+    TextView OptionD;
+    String[] currentEntry;
+
+
+    public void chooseA(View view){
+        if (correctAnswer == 1) {
+            OptionA.setBackgroundColor(0x000000);
+            score+=3;
+            getNewSet();
+        }
+        else {
+            OptionA.setText("INCORRECT");
+            score --;
+        }
+
+    }
+    public void chooseB(View view){
+        if (correctAnswer == 2) {
+            OptionB.setBackgroundColor(0x000000);
+            score+=3;
+            getNewSet();
+        }
+        else {
+            OptionB.setText("INCORRECT");
+            score --;
+        }
+
+
+    }
+    public void chooseC(View view){
+        if (correctAnswer == 3) {
+            OptionC.setBackgroundColor(0x000000);
+            score+=3;
+            getNewSet();
+        }
+        else {
+            OptionC.setText("INCORRECT");
+            score --;
+        }
+    }
+    public void chooseD(View view){
+        if (correctAnswer == 4) {
+            OptionD.setBackgroundColor(0x000000);
+            score+=3;
+            getNewSet();
+        }
+        else {
+            OptionD.setText("INCORRECT");
+            score --;
+        }
+    }
+
+    public void getNewSet(){
+
+        if (quizType == "quiz"){
+            if (questionsCount == 10) {
+                Question.setText("Total score: " + score + "/10");
+            }
+        }
+
+        com.hoxton.mchoice.DataBaseHelper myDbHelper;
+        myDbHelper = new com.hoxton.mchoice.DataBaseHelper(this);
+        try {
+            myDbHelper.createDataBase();
+        } catch (IOException ioe) {
+            throw new Error("Unable to create database"); }
+        try {
+            myDbHelper.openDataBase();
+        }catch(SQLException sqle){
+            throw sqle; }
+
+        currentEntry= myDbHelper.returnInfo(0);
+
+        Question.setText(currentEntry[0]);
+        OptionA.setText(currentEntry[1]);
+        OptionB.setText(currentEntry[2]);
+        OptionC.setText(currentEntry[3]);
+        OptionD.setText(currentEntry[4]);
+
+        correctAnswer = Integer.parseInt(currentEntry[5]);
+
+        questionsCount ++;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,5 +112,13 @@ public class multipleChoice extends AppCompatActivity {
         courseName = bundle.getString("courseName");
         quizType = bundle.getString("quizType");
 
+        Question = findViewById(R.id.Question);
+
+        OptionA = findViewById(R.id.OptionA);
+        OptionB = findViewById(R.id.OptionB);
+        OptionC = findViewById(R.id.OptionC);
+        OptionD = findViewById(R.id.OptionD);
+
+        getNewSet();
     }
 }
