@@ -12,10 +12,10 @@ public class chooseGameType extends AppCompatActivity {
     Button allQuestions;
     String courseName;
 
-    public void startQuiz(View view){
+    public void quiz10(View view){
         Intent intent = new Intent(this, multipleChoice.class);
-        //Save quiz type as quiz and pass on for later, as well as courseName
-        String quizType = "quiz";
+        //Save quiz type as quiz10 and pass on for later, as well as courseName
+        String quizType = "quiz10";
         Bundle bundle = new Bundle();
         bundle.putString("quizType", quizType);
         bundle.putString("courseName", courseName);
@@ -23,10 +23,10 @@ public class chooseGameType extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void allQuestions(View view){
+    public void quiz25(View view){
         Intent intent = new Intent(this, multipleChoice.class);
-        //Save quiz type as allQuestions and pass on for later, as well as courseName
-        String quizType = "allQuestions";
+        //Save quiz type as quiz25and pass on for later, as well as courseName
+        String quizType = "quiz25";
         Bundle bundle = new Bundle();
         bundle.putString("quizType", quizType);
         bundle.putString("courseName", courseName);

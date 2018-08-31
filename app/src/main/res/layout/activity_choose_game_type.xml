@@ -8,10 +8,10 @@
 
     <Button
         android:id="@+id/Quiz"
-        android:layout_width="223dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:onClick="startQuiz"
-        android:text="Quiz (10 questions)"
+        android:onClick="quiz10"
+        android:text="10 Questions"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/allQuestions"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,10 +21,10 @@
 
     <Button
         android:id="@+id/allQuestions"
-        android:layout_width="184dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:onClick="allQuestions"
-        android:text="All Questions"
+        android:onClick="quiz25"
+        android:text="25 Questions"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import java.io.IOException;
+import java.util.Random;
+
 
 public class multipleChoice extends AppCompatActivity {
 
@@ -22,7 +24,26 @@ public class multipleChoice extends AppCompatActivity {
     TextView OptionC;
     TextView OptionD;
     String[] currentEntry;
+    int[] questionArray = new int[87];
 
+
+    //Function for shuffling an array courtesy of Dan Bray at:
+    // https://stackoverflow.com/questions/1519736/random-shuffling-of-an-array
+    private static void shuffleArray(int[] array)
+    {
+        int index;
+        Random random = new Random();
+        for (int i = array.length - 1; i > 0; i--)
+        {
+            index = random.nextInt(i + 1);
+            if (index != i)
+            {
+                array[index] ^= array[i];
+                array[i] ^= array[index];
+                array[index] ^= array[i];
+            }
+        }
+    }
 
     public void chooseA(View view){
         if (correctAnswer == 1) {
@@ -67,10 +88,14 @@ public class multipleChoice extends AppCompatActivity {
     }
 
     public void getNewSet(){
-        if (quizType.equals("quiz")){
-            if (questionsCount >= 10) {
-                Question.setText("Total score: " + score + "/10");
-            }
+
+        if (questionsCount == 10 && quizType.equals("quiz10")){
+            //TODO: move to finish screen
+
+
+        } else if(questionsCount == 25 && quizType.equals("quiz25")){
+            //TODO: move to finish screen
+
         }
 
         com.hoxton.mchoice.DataBaseHelper myDbHelper;
@@ -84,7 +109,7 @@ public class multipleChoice extends AppCompatActivity {
         }catch(SQLException sqle){
             throw sqle; }
 
-        currentEntry= myDbHelper.returnInfo(current, courseName);
+        currentEntry= myDbHelper.returnInfo(questionArray[current], courseName);
 
         Question.setText(currentEntry[0]);
         OptionA.setText(currentEntry[1]);
@@ -93,9 +118,7 @@ public class multipleChoice extends AppCompatActivity {
         OptionD.setText(currentEntry[4]);
 
         correctAnswer = Integer.parseInt(currentEntry[5]);
-
         questionsCount ++;
-
         current++;
     }
 
@@ -114,6 +137,11 @@ public class multipleChoice extends AppCompatActivity {
         OptionB = findViewById(R.id.OptionB);
         OptionC = findViewById(R.id.OptionC);
         OptionD = findViewById(R.id.OptionD);
+
+        for(int k = 0; k < questionArray.length; k++)
+            questionArray[k] = k+1;
+
+        shuffleArray(questionArray);
 
         getNewSet();
     }
