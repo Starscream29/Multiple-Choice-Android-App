@@ -35,7 +35,7 @@
         android:id="@+id/versionTag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Version 0.1"
+        android:text="Version 1.0 (Initial Release)"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

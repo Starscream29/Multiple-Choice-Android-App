@@ -1,5 +1,6 @@
 package com.hoxton.mchoice;
 
+import android.content.Intent;
 import android.database.SQLException;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,7 +25,7 @@ public class multipleChoice extends AppCompatActivity {
     TextView OptionC;
     TextView OptionD;
     String[] currentEntry;
-    int[] questionArray = new int[87];
+    int[] questionArray = new int[86];
 
 
     //Function for shuffling an array courtesy of Dan Bray at:
@@ -47,7 +48,7 @@ public class multipleChoice extends AppCompatActivity {
 
     public void chooseA(View view){
         if (correctAnswer == 1) {
-            score+=3;
+            score++;
             getNewSet();
         }
         else {
@@ -58,7 +59,7 @@ public class multipleChoice extends AppCompatActivity {
     }
     public void chooseB(View view){
         if (correctAnswer == 2) {
-            score+=3;
+            score++;
             getNewSet();
         }
         else {
@@ -68,7 +69,7 @@ public class multipleChoice extends AppCompatActivity {
     }
     public void chooseC(View view){
         if (correctAnswer == 3) {
-            score+=3;
+            score++;
             getNewSet();
         }
         else {
@@ -78,7 +79,7 @@ public class multipleChoice extends AppCompatActivity {
     }
     public void chooseD(View view){
         if (correctAnswer == 4) {
-            score+=3;
+            score++;
             getNewSet();
         }
         else {
@@ -90,12 +91,26 @@ public class multipleChoice extends AppCompatActivity {
     public void getNewSet(){
 
         if (questionsCount == 10 && quizType.equals("quiz10")){
-            //TODO: move to finish screen
 
+            Intent intent = new Intent(this, quizOverScreen.class);
+            intent.putExtra("scoreValue", score);
+            intent.putExtra("total", 10);
+            Bundle bundle = new Bundle();
+            bundle.putString("quizType", quizType);
+            bundle.putString("courseName", courseName);
+            intent.putExtras(bundle);
+            startActivity(intent);
+        }
+        else if(questionsCount == 25 && quizType.equals("quiz25")){
 
-        } else if(questionsCount == 25 && quizType.equals("quiz25")){
-            //TODO: move to finish screen
-
+            Intent intent = new Intent(this, quizOverScreen.class);
+            intent.putExtra("scoreValue", score);
+            intent.putExtra("total", 25);
+            Bundle bundle = new Bundle();
+            bundle.putString("quizType", quizType);
+            bundle.putString("courseName", courseName);
+            intent.putExtras(bundle);
+            startActivity(intent);
         }
 
         com.hoxton.mchoice.DataBaseHelper myDbHelper;

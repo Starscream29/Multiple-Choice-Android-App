@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-
     package="com.hoxton.mchoice">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="false"
@@ -20,7 +21,8 @@
         </activity>
         <activity android:name=".chooseCourse" />
         <activity android:name=".chooseGameType" />
-        <activity android:name=".multipleChoice"></activity>
+        <activity android:name=".multipleChoice" />
+        <activity android:name=".quizOverScreen"></activity>
     </application>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
 </manifest>
